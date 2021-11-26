@@ -14,19 +14,15 @@ taskTable.addEventListener('click', event => {
     if (event.target.parentElement.classList.contains('js-tick')) {
         const taskKey = event.target.parentElement.parentElement.parentElement.dataset.key;
 
-        alert(`Done checkbox pressed for task id ${taskKey}`);
-
         taskIndex = locateTask(taskKey);
         if (taskIndex != -1) {
             taskList[taskIndex].checked = !taskList[taskIndex].checked;
         }
     }
     else if (event.target.parentElement.classList.contains('js-delete')) {
-        const taskRow = event.target.parentElement.parentElement.parentElement
+        const taskRow = event.target.parentElement.parentElement.parentElement;
         const taskKey = taskRow.dataset.key;
         taskRow.remove();
-
-        alert(`Deleted task id ${taskKey}`);
 
         taskIndex = locateTask(taskKey);
         if (taskIndex != -1) {
@@ -77,9 +73,6 @@ function addTask() {
         };
 
         taskList.push(task);
-        alert("Task '" + taskName + "' added to list.");
-        console.log(taskList);
-
         renderNewTask(task);
     }
     addTextbox.value = "";
