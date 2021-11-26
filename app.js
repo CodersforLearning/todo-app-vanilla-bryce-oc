@@ -27,6 +27,11 @@ taskTable.addEventListener('click', event => {
         taskIndex = locateTask(taskKey);
         if (taskIndex != -1) {
             taskList.splice(taskIndex, 1);
+
+            if (taskList.length == 0) {
+                const tableHeader = document.querySelector('#table-header');
+                tableHeader.innerHTML = `<th>No tasks yet. Add a task!</th>`;
+            }
         }
     }
 });
@@ -74,6 +79,14 @@ function addTask() {
 
         taskList.push(task);
         renderNewTask(task);
+
+        if (taskList.length == 1) {
+            const tableHeader = document.querySelector('#table-header');
+            tableHeader.innerHTML = `
+            <th>complete?</th>
+            <th>task</th>
+            `;
+        }
     }
     addTextbox.value = "";
 }
