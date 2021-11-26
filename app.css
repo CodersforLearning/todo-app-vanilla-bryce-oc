@@ -1,0 +1,18 @@
+﻿body {
+    background-color: cornflowerblue;
+}
+header {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 200%;
+    margin: 10px;
+}
+#js-todo-table {
+    background-color: skyblue;
+    border-width: 20px;
+    font-size: 120%;
+    border: 50px;
+    margin: 0 auto;
+}
+#add-todo {
+    margin: 0 auto;
+}

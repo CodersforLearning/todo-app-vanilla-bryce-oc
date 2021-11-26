@@ -32,6 +32,8 @@ taskTable.addEventListener('click', event => {
                 const tableHeader = document.querySelector('#table-header');
                 tableHeader.innerHTML = `<th>No tasks yet. Add a task!</th>`;
             }
+
+            localStorage.setItem('taskListRef', JSON.stringify(taskList));
         }
     }
 });
@@ -66,6 +68,15 @@ function renderNewTask(task) {
     `;
 
     taskTable.append(taskRow);
+    localStorage.setItem('taskListRef', JSON.stringify(taskList));
+
+    if (taskList.length >= 1) {
+        const tableHeader = document.querySelector('#table-header');
+        tableHeader.innerHTML = `
+        <th>complete?</th>
+        <th>task</th>
+        `;
+    }
 }
 
 function addTask() {
@@ -79,14 +90,16 @@ function addTask() {
 
         taskList.push(task);
         renderNewTask(task);
-
-        if (taskList.length == 1) {
-            const tableHeader = document.querySelector('#table-header');
-            tableHeader.innerHTML = `
-            <th>complete?</th>
-            <th>task</th>
-            `;
-        }
     }
     addTextbox.value = "";
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const ref = localStorage.getItem('taskListRef');
+  if (ref) {
+    taskList = JSON.parse(ref);
+    taskList.forEach(t => {
+      renderNewTask(t);
+    });
+  }
+});
