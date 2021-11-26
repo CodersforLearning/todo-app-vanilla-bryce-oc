@@ -1,30 +1,19 @@
 <body>
-    <div>
-        <header>TODO LIST:</header>
-        <section class="list">
-            <div class="todos" id="js-todos">
-                <table id="js-todo-table">
-                    <tr>
-                        <th>
-                            <input type="checkbox" id="js-all">
-                        </th>
-                        <th>task</th>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="js-todo1"></td>
-                        <td><input type="text"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="js-todo2"></td>
-                        <td><input type="text"></td>
-                    </tr>
-                </table>
-            </div>
-        </section>
-        <section class="controls">
-            <button type="button" class="add-todo" id="js-add-todo">add task</button>
-            <button type="button" class="remove-todo" id="js-remove-todo">remove task</button>
-        </section>
-    </div>
+    <header>TODO LIST:</header>
+    <section class="list">
+        <div class="todos" id="js-todos">
+            <table id="js-todo-table">
+                <tr id="table-header">
+                    <th>complete?</th>
+                    <th>task</th>
+                </tr>
+            </table>
+        </div>
+    </section>
+    <section class="controls">
+        <br>
+        <button type="button" class="add-todo" id="js-add-button">add task</button>
+        <input autofocus type="text" class="add-todo" id="js-add-textbox">
+    </section>
     <script src='app.js'></script>
 </body>
